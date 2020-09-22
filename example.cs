@@ -7,7 +7,7 @@ namespace ConsoleApp1
             string username = "XXXXXXXXXXXXXXXXXXXXX";
             string password = "XXXXXXXXXXXXXXXXXX";
 
-           WebRequest req = WebRequest.Create(@"https://api.xforce.ibmcloud.com:443/resolve/schneider-electric.com");
+           HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://api.xforce.ibmcloud.com:443/resolve/schneider-electric.com");
             req.Method = "GET";
             req.Headers["Authorization"] = "Basic " + Convert.ToBase64String(Encoding.Default.GetBytes(username + ":" + password));
             HttpWebResponse response = req.GetResponse() as HttpWebResponse;
